@@ -7,6 +7,7 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
+import { API } from "../webConfig";
 export const MenuItem = (props) => {
   const { item, isAdded, onAddToCartClick } = props;
   return (
@@ -15,7 +16,7 @@ export const MenuItem = (props) => {
         <CardImg
           top
           width="100%"
-          src={`http://localhost:3001/${item.img}`}
+          src={`${API.baseURL}/${item.img}`}
           alt="Card image cap"
         />
         <CardBody>
