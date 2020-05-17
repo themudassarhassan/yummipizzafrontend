@@ -1,3 +1,3 @@
 export const API = {
-  baseURL: "https://mypizzayummi.herokuapp.com",
+  baseURL: process.env.REACT_APP_API_URL,
 };
