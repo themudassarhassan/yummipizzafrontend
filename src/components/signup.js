@@ -8,6 +8,9 @@ import {
   Alert,
   Spinner,
 } from "reactstrap";
+
+import { useHistory } from "react-router-dom";
+
 export const Signup = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +19,7 @@ export const Signup = (props) => {
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [spinner, setSpinner] = useState(false);
+  const history = useHistory();
 
   const validateFields = () => {
     if (name === "") {
@@ -65,8 +69,7 @@ export const Signup = (props) => {
           body,
         });
         if (result.ok) {
-          result = await result.json();
-          console.log(result);
+          history.replace({ pathname: "/login" });
         } else {
           result = await result.json();
           setErrorMessage(result.message);
